@@ -8,11 +8,13 @@ import TechStack from "./pages/TechStack";
 import NavBar from "./sections/NavBar";
 
 import { appTheme } from "./styles/AppTheme";
+import { GlobalStyles } from "./styles/Global";
 
 function App() {
   return (
     <ThemeProvider theme={appTheme}>
       <BrowserRouter>
+        <GlobalStyles />
         <NavBar />
         <div className="App">
           <Routes>
