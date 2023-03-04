@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import NavBar from "./components/NavBar";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import TechStack from "./pages/TechStack";
+import NavBar from "./sections/NavBar";
 
 import { appTheme } from "./styles/AppTheme";
 
