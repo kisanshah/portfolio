@@ -9,11 +9,11 @@ export default function NavBar() {
         <Logo />
       </div>
       <div className="navbar-right">
-        <NavItem text="Home" />
-        <NavItem text="About" />
-        <NavItem text="TechStack" />
-        <NavItem text="Project" />
-        <NavItem text="Contact" />
+        <NavItem text="Home" to="/" />
+        <NavItem text="About" to="/about" />
+        <NavItem text="TechStack" to="/techstack" />
+        <NavItem text="Project" to="/projects" />
+        <NavItem text="Contact" to="/contact" />
       </div>
     </nav>
   );

@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const StyledLink = styled(Link)`
+  text-align: center;
+  text-decoration: none;
+`;
+
 export default function NavItem(props) {
-  return (
-    <a href={props.href} className="navbar-item">
-      {props.text}
-    </a>
-  );
+  return <StyledLink to={props.to}>{props.text}</StyledLink>;
 }
