@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
 *,
 *::before,
 *::after {
+  font-family: "Poppins";
   box-sizing: border-box;
 }
 

@@ -7,7 +7,7 @@ export default function Logo() {
 
 const StyledLogo = styled.p`
   flex: 1;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 1.5rem;
-  color: ${(props) => appTheme.colors.primary};
+  color: ${(props) => appTheme.colors.color_black};
 `;

@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import profile from "../assets/images/profile.png";
+import LineBreak from "../components/LineBreak";
 import { appTheme } from "../styles/AppTheme";
 export default function Home() {
   return (
@@ -39,9 +40,19 @@ const StyledSpan = styled.span`
   font-size: ${(props) => props.fontSize};
 `;
 
-const LineBreak = styled.br``;
-
+const float = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
 const StyledImage = styled.img`
   flex: 1;
   align-self: center;
+  animation: ${float} 2s ease-in-out infinite;
 `;
