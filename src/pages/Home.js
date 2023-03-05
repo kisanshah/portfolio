@@ -1,18 +1,19 @@
 import styled, { keyframes } from "styled-components";
 import profile from "../assets/images/profile.png";
 import LineBreak from "../components/LineBreak";
+import Span from "../components/Span";
 import { appTheme } from "../styles/AppTheme";
 export default function Home() {
   return (
     <StyledHome>
       <StyledParagraph>
         Hello, <LineBreak />
-        My Self <StyledSpan>Kisan Shah</StyledSpan>
+        My Self <Span>Kisan Shah</Span>
         <LineBreak />
-        <StyledSpan fontSize="2.2rem" color={appTheme.colors.textColor}>
+        <Span fontSize="2.2rem" color={appTheme.colors.textColor}>
           I love building things for the mobile using
-          <StyledSpan> flutter</StyledSpan> & <StyledSpan>android</StyledSpan>.{" "}
-        </StyledSpan>
+          <Span> flutter</Span> & <Span>android</Span>.{" "}
+        </Span>
       </StyledParagraph>
       <StyledImage src={profile} alt="Image description" />
     </StyledHome>
@@ -32,12 +33,6 @@ const StyledParagraph = styled.p`
   font-weight: 900;
   letter-spacing: -1px;
   font-family: "Poppins";
-`;
-
-const StyledSpan = styled.span`
-  font-weight: bold;
-  color: ${(props) => props.color || appTheme.colors.primary};
-  font-size: ${(props) => props.fontSize};
 `;
 
 const float = keyframes`

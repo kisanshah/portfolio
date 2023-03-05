@@ -9,7 +9,7 @@ export default function NavBar() {
       <NavLinkWrapper>
         <NavItem text="Home" to="/" />
         <NavItem text="About" to="/about" />
-        <NavItem text="TechStack" to="/techstack" />
+        <NavItem text="Work" to="/work" />
         <NavItem text="Project" to="/projects" />
         <NavItem text="Contact" to="/contact" />
       </NavLinkWrapper>

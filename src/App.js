@@ -4,7 +4,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
-import TechStack from "./pages/TechStack";
+import Work from "./pages/Work";
 import NavBar from "./sections/NavBar";
 
 import { appTheme } from "./styles/AppTheme";
@@ -20,7 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/techstack" element={<TechStack />} />
+            <Route path="/work" element={<Work />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
