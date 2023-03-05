@@ -1,17 +1,29 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Logo from "../components/Logo";
-import NavItem from "../components/NavItem";
+import StyledLink from "../components/StyledLink";
+import { setCurrent } from "../store/reducers/navBarSlice";
 
 export default function NavBar() {
+  const items = useSelector((state) => state.navbar.navItems);
+  const dispatch = useDispatch();
+  const selectedItem = useSelector((state) => state.navbar.selectedItem);
   return (
     <StyledNavBar>
       <Logo />
       <NavLinkWrapper>
-        <NavItem text="Home" to="/" />
-        <NavItem text="About" to="/about" />
-        <NavItem text="Work" to="/work" />
-        <NavItem text="Project" to="/projects" />
-        <NavItem text="Contact" to="/contact" />
+        {items.map((item) => (
+          <StyledLink
+            onClick={() => {
+              dispatch(setCurrent(item));
+            }}
+            key={item.id}
+            to={item.route}
+            active={selectedItem?.id == item.id}
+          >
+            {item.label}
+          </StyledLink>
+        ))}
       </NavLinkWrapper>
     </StyledNavBar>
   );

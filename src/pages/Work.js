@@ -22,22 +22,22 @@ export default function Work() {
             <LineBreak />
             <Paragraph>May 2021 - Jul 2021 · 3 mos</Paragraph>
             <Gap height="10px" />
-            <ListWrapper>
-              <ListItem>
-                Worked with Kotlin programming language to write concise,
-                expressive, and type-safe code for Android applications.
-              </ListItem>
-              <ListItem>
-                Developed data-driven Android app UIs using LiveData, ViewModel,
-                and Data Binding components.
-              </ListItem>
-              <ListItem>
-                Managed the app submission and review process to ensure
-                successful publication of Android apps on the Google Play Store,
-                including compliance with app store guidelines and procedures.
-              </ListItem>
-            </ListWrapper>
           </Text>
+          <ListWrapper>
+            <ListItem>
+              Worked with Kotlin programming language to write concise,
+              expressive, and type-safe code for Android applications.
+            </ListItem>
+            <ListItem>
+              Developed data-driven Android app UIs using LiveData, ViewModel,
+              and Data Binding components.
+            </ListItem>
+            <ListItem>
+              Managed the app submission and review process to ensure successful
+              publication of Android apps on the Google Play Store, including
+              compliance with app store guidelines and procedures.
+            </ListItem>
+          </ListWrapper>
         </CompanyDetailSection>
       </Company>
     </StyledWork>
