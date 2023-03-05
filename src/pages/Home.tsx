@@ -1,3 +1,4 @@
+import React from "react";
 import styled, { keyframes } from "styled-components";
 import profile from "../assets/images/profile.png";
 import LineBreak from "../components/LineBreak";

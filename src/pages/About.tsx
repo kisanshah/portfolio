@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Gap from "../components/Gap";
 import Header from "../components/Header";

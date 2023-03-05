@@ -1,5 +1,5 @@
 import styled from "styled-components";
-const Gap = styled.div`
+const Gap = styled.p`
   height: ${(props) => props.height};
   width: ${(props) => props.width};
 `;

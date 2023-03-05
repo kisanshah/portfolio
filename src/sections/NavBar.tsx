@@ -1,13 +1,17 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Logo from "../components/Logo";
 import StyledLink from "../components/StyledLink";
 import { setCurrent } from "../store/reducers/navBarSlice";
+import { RootState } from "../store/store";
 
 export default function NavBar() {
-  const items = useSelector((state) => state.navbar.navItems);
+  const items = useSelector((state: RootState) => state.navbar.navItems);
   const dispatch = useDispatch();
-  const selectedItem = useSelector((state) => state.navbar.selectedItem);
+  const selectedItem = useSelector(
+    (state: RootState) => state.navbar.selectedItem
+  );
   return (
     <StyledNavBar>
       <Logo />
@@ -19,7 +23,7 @@ export default function NavBar() {
             }}
             key={item.id}
             to={item.route}
-            active={selectedItem?.id == item.id}
+            active={selectedItem?.id === item.id}
           >
             {item.label}
           </StyledLink>

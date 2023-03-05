@@ -32,7 +32,6 @@ export const appTheme = {
     color_team_blue: "#36a3ff",
     color_team_red: "#ff4545",
     color_team_yellow: "#a08600",
-    color_yellow_500: "#a08600",
     color_yellow_500_inverted: "#ffd644",
   },
   paddings: {

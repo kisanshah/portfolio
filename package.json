@@ -18,7 +18,6 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "styled-components": "^5.3.8",
-    "typescript": "^4.9.5",
     "web-vitals": "^3.1.1"
   },
   "scripts": {
@@ -44,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
   }
 }

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Gap from "../components/Gap";
 import Header from "../components/Header";
 import LineBreak from "../components/LineBreak";
@@ -6,43 +6,63 @@ import Paragraph from "../components/Paragraph";
 import Span from "../components/Span";
 import Text from "../components/Text";
 import { appTheme } from "../styles/AppTheme";
+
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentCompany } from "src/store/reducers/workSlice";
+import { RootState } from "src/store/store";
+
 export default function Work() {
+  const companies = useSelector((state: RootState) => state.work.companies);
+  const selected =
+    useSelector((state: RootState) => state.work.selected) ?? companies[0];
+  const dispatch = useDispatch();
+  const openUrl = (link: string) => {
+    window.open(link, "_blank");
+  };
+
   return (
     <StyledWork>
       <Header>Where I’ve Worked</Header>
       <Gap height="60px" />
       <Company>
         <CompanyNameSection>
-          <Name active={true}>WEQ Technologies</Name>
-          <Name>Acropolis</Name>
+          {companies.map((item) => (
+            <Name
+              key={item.id}
+              onClick={() => {
+                dispatch(setCurrentCompany(item as any));
+              }}
+              active={item.id === selected?.id}
+            >
+              {item.company}
+            </Name>
+          ))}
         </CompanyNameSection>
         <CompanyDetailSection>
           <Text fontSize="20px">
-            Android Developer Intern <Span>@Acropolis</Span>
+            {selected.label}{" "}
+            <ClickableSpan onClick={() => openUrl(selected.link)}>
+              @{selected.company}
+            </ClickableSpan>
             <LineBreak />
             <Paragraph>May 2021 - Jul 2021 · 3 mos</Paragraph>
             <Gap height="10px" />
           </Text>
           <ListWrapper>
-            <ListItem>
-              Worked with Kotlin programming language to write concise,
-              expressive, and type-safe code for Android applications.
-            </ListItem>
-            <ListItem>
-              Developed data-driven Android app UIs using LiveData, ViewModel,
-              and Data Binding components.
-            </ListItem>
-            <ListItem>
-              Managed the app submission and review process to ensure successful
-              publication of Android apps on the Google Play Store, including
-              compliance with app store guidelines and procedures.
-            </ListItem>
+            {selected.description.split("\n").map((elem) => (
+              <ListItem key={elem}>{elem}</ListItem>
+            ))}
           </ListWrapper>
         </CompanyDetailSection>
       </Company>
     </StyledWork>
   );
 }
+
+const ClickableSpan = styled(Span)`
+  cursor: pointer;
+`;
 
 const ListWrapper = styled.ul``;
 const ListItem = styled.li`
@@ -68,7 +88,11 @@ const CompanyDetailSection = styled.div`
   margin-top: 7px;
   height: 50vh;
 `;
-
+const activeCss = css`
+  border-left: 3px solid ${() => appTheme.colors.primary};
+  color: ${() => appTheme.colors.primary};
+  background-color: ${() => appTheme.colors.tint};
+`;
 const Name = styled.p`
   display: flex;
   padding: 10px;
@@ -81,10 +105,9 @@ const Name = styled.p`
   border-left: 3px solid ${() => appTheme.colors.color_gray_400};
   &:active,
   &:hover {
-    border-left: 3px solid ${() => appTheme.colors.primary};
-    color: ${() => appTheme.colors.primary};
-    background-color: ${() => appTheme.colors.tint};
+    ${activeCss}
   }
+  ${({ active }) => active && activeCss}
 `;
 
 const StyledWork = styled.div`

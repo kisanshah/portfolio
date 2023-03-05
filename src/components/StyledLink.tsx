@@ -11,7 +11,7 @@ const StyledLink = styled(Link)`
   flex: 1;
   text-decoration: none;
   font-weight: 500;
-  color: ${(props) => appTheme.colors.textColor};
+  color: ${() => appTheme.colors.textColor};
   ${({ active }) => active && activeCss}
 `;
 
