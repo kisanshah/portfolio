@@ -7,3 +7,5 @@ const Button = styled.button`
   font-size: ${(props) => props.theme.fontSize.button};
   border: none;
 `;
+
+export default Button;

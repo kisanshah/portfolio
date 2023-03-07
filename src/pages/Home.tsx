@@ -16,7 +16,10 @@ export default function Home() {
           <Span> flutter</Span> & <Span>android</Span>.{" "}
         </Span>
       </StyledParagraph>
-      <StyledImage src={profile} alt="Image description" />
+      <ImageContainer>
+        <StyledImage src={profile} alt="Image description" />
+        {/* <AnimatingBox /> */}
+      </ImageContainer>
     </StyledHome>
   );
 }
@@ -36,6 +39,14 @@ const StyledParagraph = styled.p`
   font-family: "Poppins";
 `;
 
+const ImageContainer = styled.div`
+  flex: 1;
+  justify-self: center;
+  align-self: center;
+  height: 55%;
+  overflow: clip;
+  position: relative;
+`;
 const float = keyframes`
   0% {
     transform: translateY(0);
@@ -47,8 +58,37 @@ const float = keyframes`
     transform: translateY(0);
   }
 `;
+
+// const leftRight = keyframes`
+//   0% {
+//     transform: translate(0, 0) scale(1);
+//   }
+//   50% {
+//     transform: translateY(150px) ;
+//   }
+//   100% {
+//     transform: translate(0, 0) scale(1);
+//   }
+// `;
+// const AnimatingBox = styled.div`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 50px;
+//   height: 50px;
+//   background-color: red;
+//   transform-origin: top left;
+//   z-index: 1;
+//   border-radius: 100%;
+//   animation: ${leftRight} 10s ease-in-out forwards;
+// `;
+
 const StyledImage = styled.img`
-  flex: 1;
-  align-self: center;
   animation: ${float} 2s ease-in-out infinite;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 `;

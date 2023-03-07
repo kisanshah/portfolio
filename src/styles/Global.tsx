@@ -15,7 +15,7 @@ html {
 
 body {
   margin: 0;
-  padding: 0 10%;
+  padding: 0 ;
   overflow-x: hidden;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
