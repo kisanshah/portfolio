@@ -6,4 +6,8 @@ const Span = styled.span`
   font-size: ${(props) => props.fontSize};
 `;
 
+export const ClickableSpan = styled(Span)`
+  cursor: pointer;
+`;
+
 export default Span;

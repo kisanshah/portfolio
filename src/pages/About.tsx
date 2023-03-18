@@ -1,33 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 import Gap from "../components/Gap";
-import Header from "../components/Header";
-import LineBreak from "../components/LineBreak";
-import Span from "../components/Span";
+import Header, { SubHeader } from "../components/Header";
+import Span, { ClickableSpan } from "../components/Span";
 import Text from "../components/Text";
 export default function About() {
+  const openUrl = (link: string) => {
+    window.open(link, "_blank");
+  };
   return (
     <StyledAbout>
       <Header>About Me</Header>
       <Gap height="20px" />
       <Text>
-        I am an <Span>Android/Flutter</Span> Developer with a Bachelor of
-        Science degree in Information Technology. My primary interest lies in
-        Mobile App Development and I always strive to stay informed about the
-        latest advancements in the field.
-        <LineBreak />
-        <LineBreak />
-        On my social media platforms, such as <Span>YouTube</Span> and
-        <Span> Instagram</Span>, I take pleasure in sharing my programming
-        expertise with others. From insightful tutorials to practical advice, my
-        content is designed to help people learn programming in an engaging and
-        accessible way.
-        <LineBreak />
-        <LineBreak />
-        In my free time, I enjoy playing Chess and watching Anime. These hobbies
-        provide a welcome respite from the demands of development work and help
-        me stay balanced.
+        I'm an enthusiastic <Span>Android/Flutter</Span> Developer with a degree
+        in Information Technology. I'm always keen to learn about the latest
+        advancements in mobile app development and enjoy sharing my programming
+        tips on social media platforms like{" "}
+        <ClickableSpan
+          onClick={() => openUrl("https://www.instagram.com/simplekoder/")}
+        >
+          Instagram
+        </ClickableSpan>{" "}
+        and{" "}
+        <ClickableSpan
+          onClick={() => openUrl("https://www.youtube.com/c/SimpleKoder")}
+        >
+          YouTube
+        </ClickableSpan>
+        .
       </Text>
+      <Gap height="20px" />
+      <SubHeader>Tech Stack</SubHeader>
     </StyledAbout>
   );
 }
