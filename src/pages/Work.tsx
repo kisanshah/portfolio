@@ -4,11 +4,10 @@ import Header from "../components/Header";
 import LineBreak from "../components/LineBreak";
 import Paragraph from "../components/Paragraph";
 import Span from "../components/Span";
-import Text from "../components/Text";
-import { appTheme } from "../styles/AppTheme";
 
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import SubText from "src/components/SubText";
 import { setCurrentCompany } from "src/store/reducers/workSlice";
 import { RootState } from "src/store/store";
 
@@ -40,15 +39,15 @@ export default function Work() {
           ))}
         </CompanyNameSection>
         <CompanyDetailSection>
-          <Text fontSize="20px">
-            {selected.label}{" "}
+          <SubText fontSize="20px">
+            {selected.label}
             <ClickableSpan onClick={() => openUrl(selected.link)}>
-              @{selected.company}
+              {` @` + selected.company}
             </ClickableSpan>
             <LineBreak />
             <Paragraph>May 2021 - Jul 2021 · 3 mos</Paragraph>
             <Gap height="10px" />
-          </Text>
+          </SubText>
           <ListWrapper>
             {selected.description.split("\n").map((elem) => (
               <ListItem key={elem}>{elem}</ListItem>
@@ -62,6 +61,7 @@ export default function Work() {
 
 const ClickableSpan = styled(Span)`
   cursor: pointer;
+  color: ${(props) => props.theme.primary};
 `;
 
 const ListWrapper = styled.ul``;
@@ -74,7 +74,7 @@ const ListItem = styled.li`
   list-style-type: "◆  ";
   list-style-position: outside;
   &::marker {
-    color: ${() => appTheme.colors.primary};
+    color: ${(props) => props.theme.primary};
   }
 `;
 const Company = styled.div`
@@ -84,25 +84,25 @@ const CompanyNameSection = styled.div`
   margin-right: 50px;
 `;
 const CompanyDetailSection = styled.div`
-  width: 50%;
-  margin-top: 7px;
-  height: 50vh;
+  width: 70%;
+  padding: 20px;
+  background-color: ${(props) => props.theme.tintBg};
+  border-radius: ${(props) => props.theme.radius};
 `;
 const activeCss = css`
-  border-left: 3px solid ${() => appTheme.colors.primary};
-  color: ${() => appTheme.colors.primary};
-  background-color: ${() => appTheme.colors.tint};
+  border-left: 3px solid ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.primary};
+  background-color: ${(props) => props.theme.tintBg};
 `;
 const Name = styled.p`
   display: flex;
   padding: 10px;
+  border-left: 3px solid transparent;
   align-items: center;
-  height: 40px;
+  height: 50px;
   cursor: pointer;
   font-size: 16px;
-  color: ${() => appTheme.colors.color_gray_400};
   font-weight: 500;
-  border-left: 3px solid ${() => appTheme.colors.color_gray_400};
   &:active,
   &:hover {
     ${activeCss}

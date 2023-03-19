@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import styled, { css, ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -8,22 +8,25 @@ import Projects from "./pages/Projects";
 import Work from "./pages/Work";
 import NavBar from "./sections/NavBar";
 
-import { appTheme } from "./styles/AppTheme";
-import { GlobalStyles } from "./styles/Global";
-
 import background from "./assets/icons/background.svg";
 import { ReactComponent as Github } from "./assets/icons/github.svg";
 import { ReactComponent as LinkedIn } from "./assets/icons/linkedin.svg";
+import { darkTheme } from "./styles/AppTheme";
+import { GlobalStyle, hover, iconStyle } from "./styles/Global";
 
 function App() {
   const openUrl = (link: string) => {
     window.open(link, "_blank");
   };
+  const [theme, setTheme] = useState("light");
+  const isDarkTheme = theme === "dark";
+  const toggleTheme = () => setTheme(isDarkTheme ? "light" : "dark");
 
   return (
-    <ThemeProvider theme={appTheme}>
+    // <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
-        <GlobalStyles />
+        <GlobalStyle theme={darkTheme} />
         <NavBar />
         <AppDiv>
           <LeftDiv>
@@ -60,23 +63,6 @@ function App() {
   );
 }
 
-const iconStyle = css`
-  height: 30px;
-  width: 30px;
-
-  stroke-width: 1.5px;
-  object-fit: cover;
-  margin-bottom: 10px;
-`;
-
-const hover = css`
-  cursor: pointer;
-  &:hover {
-    stroke: ${appTheme.colors.primary};
-    color: ${appTheme.colors.primary};
-  }
-`;
-
 const RotatedEmail = styled.p`
   ${hover}
   rotate: 90deg;
@@ -106,14 +92,14 @@ const AppDiv = styled.div`
   padding: 0 5%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(${background});
+  /* background-image: url(${background}); */
 `;
 
 const Line = styled.div`
   display: flex;
   height: 20%;
   width: 2px;
-  background-color: ${appTheme.colors.primary};
+  background-color: ${(props) => props.theme.primary};
 `;
 
 const LeftDiv = styled.div`
@@ -135,7 +121,7 @@ const InnerDiv = styled.div`
 
 const CenterDiv = styled.div`
   flex: 1;
-  margin: 0px 10%;
+  margin: 0px 2%;
 `;
 
 export default App;

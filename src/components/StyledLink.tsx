@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import { appTheme } from "../styles/AppTheme";
 
 const activeCss = css`
-  color: ${appTheme.colors.primary};
+  color: ${(props) => props.theme.primary};
 `;
 
 const StyledLink = styled(Link)`
@@ -11,7 +10,6 @@ const StyledLink = styled(Link)`
   flex: 1;
   text-decoration: none;
   font-weight: 500;
-  color: ${() => appTheme.colors.textColor};
   ${({ active }) => active && activeCss}
 `;
 

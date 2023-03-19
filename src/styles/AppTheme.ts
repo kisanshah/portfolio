@@ -1,48 +1,24 @@
-export const appTheme = {
-  colors: {
-    primary: "#6c5ce7",
-    tint: "#f0effd",
-    background: "#f5f6fa",
-    header: "#1a1a1a",
-    textColor: "#2d3436",
-    lighTextColor: "#4d4d4d",
-    hintColor: "#636e72",
-    white: "#ffffff",
+export const lightTheme = {
+  //Colors
+  bodyBg: "white",
+  secondaryBg: "white",
+  tintBg: "white",
+  primary: "#6c5ce7",
+  text: "#6c5ce7",
+  subText: "#6c5ce7",
 
-    color_black: "#000",
-    color_white: "#fff",
-    color_blue_100: "#e8f2ff",
-    color_blue_500: "#4b96ff",
-    color_slate_500: "#a9adc1",
-    color_gray_100: "#f7f7f7",
-    color_gray_200: "#e6e9ee",
-    color_gray_300: "#dde0e4",
-    color_gray_400: "#818890",
-    color_gray_500: "#535661",
-    color_gray_600: "#4b4c53",
-    color_gray_700: "#3a3d4a",
-    color_gray_800: "#2e3039",
-    color_gray_900: "#1f2028",
-    color_green_100: "#e7f9ed",
-    color_green_500: "#30c85e",
-    color_green_600: "#68d94a",
-    color_red_500: "#ff4545",
-    color_yellow_500: "#ffd644",
-    color_team_unknown: "#818890",
-    color_team_blue: "#36a3ff",
-    color_team_red: "#ff4545",
-    color_team_yellow: "#a08600",
-    color_yellow_500_inverted: "#ffd644",
-  },
-  paddings: {
-    container: "15px",
-    pageTop: "30px",
-  },
-  margins: {
-    pageTop: "30px",
-  },
-  fontSize: {
-    title: "10px",
-    button: "20px",
-  },
+  //Radius
+  radius: "10px",
+};
+export const darkTheme = {
+  //Colors
+  bodyBg: "#14181B",
+  secondaryBg: "#1C2428",
+  tintBg: "#1A1F24",
+  primary: "#48dbfb",
+  text: "#ffffff",
+  subText: "#95a1ac",
+
+  //Radius
+  radius: "10px",
 };

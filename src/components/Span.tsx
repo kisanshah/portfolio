@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { appTheme } from "../styles/AppTheme";
 const Span = styled.span`
   /* font-weight: bold; */
-  color: ${(props) => props.color || appTheme.colors.primary};
+  color: ${(props) => props.theme.underLine};
   font-size: ${(props) => props.fontSize};
 `;
 

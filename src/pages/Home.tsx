@@ -1,24 +1,21 @@
 import React from "react";
+import Gap from "src/components/Gap";
+import Header from "src/components/Header";
 import styled, { keyframes } from "styled-components";
 import profile from "../assets/images/profile.png";
-import LineBreak from "../components/LineBreak";
-import Span from "../components/Span";
-import { appTheme } from "../styles/AppTheme";
 export default function Home() {
   return (
     <StyledHome>
-      <StyledParagraph>
-        Hello, <LineBreak />
-        My Self <Span>Kisan Shah</Span>
-        <LineBreak />
-        <Span fontSize="2.2rem" color={appTheme.colors.textColor}>
-          I love building things for the mobile using
-          <Span> flutter</Span> & <Span>android</Span>.{" "}
-        </Span>
-      </StyledParagraph>
+      <TextWrapper>
+        <StyledParagraph>Hi, my name is</StyledParagraph>
+        <Gap height="5px" />
+        <Header>Kisan Shah</Header>
+        <StyledSubText>
+          I love building things for the mobile using flutter & android.
+        </StyledSubText>
+      </TextWrapper>
       <ImageContainer>
         <StyledImage src={profile} alt="Image description" />
-        {/* <AnimatingBox /> */}
       </ImageContainer>
     </StyledHome>
   );
@@ -28,7 +25,7 @@ const StyledHome = styled.div`
   height: calc(100vh - 90px);
 `;
 
-const StyledParagraph = styled.p`
+const TextWrapper = styled.p`
   flex: 2;
   margin: 0 50px 50px 0;
   align-self: center;
@@ -39,14 +36,18 @@ const StyledParagraph = styled.p`
   font-family: "Poppins";
 `;
 
-const ImageContainer = styled.div`
-  flex: 1;
-  justify-self: center;
-  align-self: center;
-  height: 55%;
-  overflow: clip;
-  position: relative;
+const StyledSubText = styled.h1`
+  margin-top: 10px;
+  color: ${(props) => props.theme.subText};
+  font-size: 35px;
+  line-height: 1.2;
 `;
+
+const StyledParagraph = styled.p`
+  font-weight: 400;
+  font-size: 25px;
+`;
+
 const float = keyframes`
   0% {
     transform: translateY(0);
@@ -58,37 +59,29 @@ const float = keyframes`
     transform: translateY(0);
   }
 `;
-
-// const leftRight = keyframes`
-//   0% {
-//     transform: translate(0, 0) scale(1);
-//   }
-//   50% {
-//     transform: translateY(150px) ;
-//   }
-//   100% {
-//     transform: translate(0, 0) scale(1);
-//   }
-// `;
-// const AnimatingBox = styled.div`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 50px;
-//   height: 50px;
-//   background-color: red;
-//   transform-origin: top left;
-//   z-index: 1;
-//   border-radius: 100%;
-//   animation: ${leftRight} 10s ease-in-out forwards;
-// `;
+const ImageContainer = styled.div`
+  animation: ${float} 2s ease-in-out infinite;
+  justify-self: center;
+  align-self: center;
+  height: 400px;
+  width: 400px;
+  border-radius: 20000px;
+  background-color: ${(props) => props.theme.primary};
+  overflow: clip;
+  position: relative;
+`;
 
 const StyledImage = styled.img`
-  animation: ${float} 2s ease-in-out infinite;
+  width: 320px;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  position: relative;
   position: absolute;
   margin: auto;
-  left: 0;
+  left: 10px;
   right: 0;
-  top: 0;
+  transform: rotate(5deg);
+  top: 40px;
   bottom: 0;
 `;

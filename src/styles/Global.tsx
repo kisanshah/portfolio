@@ -1,12 +1,11 @@
-import { createGlobalStyle } from "styled-components";
-
-export const GlobalStyles = createGlobalStyle`
-/* Box sizing rules */
+import { createGlobalStyle, css } from "styled-components";
+export const GlobalStyle = createGlobalStyle`
 *,
 *::before,
 *::after {
   font-family: "Poppins";
   box-sizing: border-box;
+  
 }
 
 html {
@@ -34,60 +33,70 @@ figure,
 blockquote,
 dl,
 dd {
+  font-family: 'Poppins';
+
   padding: 0;
   margin: 0;
 }
 button {
   border: none;
-  background-color: transparent;
-  font-family: inherit;
+  font-family: inherit; 
+  background-color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.title};
   padding: 0;
   cursor: pointer;
 }
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
-  list-style: none;
-}
-li {
-  list-style-type: none;
-}
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
 
-/* Make images easier to work with */
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
-
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
+h1{
+  font-size: 50px;
+  font-family: 'Poppins';
+  line-height: 60px;
+  color: ${(props) => props.theme.text};
+ }
+ h3{
+  color: ${(props) => props.theme.subText};
+  letter-spacing: normal;
+  line-height: 30px; 
+ }
+ h2{
+  margin-top: 10px;
+  color: ${(props) => props.theme.subText};
+  font-size: 40px;
+  line-height: 1.2;
+ }
+ a{
+  color: ${(props) => props.theme.text};
+  font-weight: 500;
+  &:active{
+    color: ${(props) => props.theme.primary};
   }
+ }
+ li{
+  color: ${(props) => props.theme.subText};
+ }
+body {
+    background-color: ${(props) => props.theme.bodyBg};
+   line-height: 1.5;
+   font-size: 1.1rem; 
+   font-family: 'Poppins';
+   font-weight:300;
+   transition: all ${(props) => props.theme.transitionTime};
+ }
+`;
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+export const iconStyle = css`
+  height: 30px;
+  width: 30px;
+  stroke-width: 1.5px;
+  object-fit: cover;
+  margin-bottom: 10px;
+`;
+
+export const hover = css`
+  cursor: pointer;
+  color: ${(props) => props.theme.text};
+  fill: transparent;
+  &:hover {
+    color: ${(props) => props.theme.primary};
   }
-}
 `;

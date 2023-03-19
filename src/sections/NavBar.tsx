@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "src/components/Button";
-import { appTheme } from "src/styles/AppTheme";
 import styled from "styled-components";
 import Logo from "../components/Logo";
 import StyledLink from "../components/StyledLink";
@@ -44,13 +43,8 @@ const Div = styled.div`
 `;
 const ResumeButton = styled(Button)`
   border-radius: 5px;
-  border: 1px ${appTheme.colors.primary} solid;
-  background-color: transparent;
   font-size: 15px;
-  color: ${appTheme.colors.primary};
   &:hover {
-    background-color: ${appTheme.colors.primary};
-    color: ${appTheme.colors.white};
   }
 `;
 
