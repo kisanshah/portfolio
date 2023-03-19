@@ -13,9 +13,7 @@ import { GlobalStyles } from "./styles/Global";
 
 import background from "./assets/icons/background.svg";
 import { ReactComponent as Github } from "./assets/icons/github.svg";
-import { ReactComponent as Instagram } from "./assets/icons/instagram.svg";
 import { ReactComponent as LinkedIn } from "./assets/icons/linkedin.svg";
-import { ReactComponent as Youtube } from "./assets/icons/youtube.svg";
 
 function App() {
   const openUrl = (link: string) => {
@@ -85,14 +83,14 @@ const RotatedEmail = styled.p`
   width: 420px;
 `;
 
-const InstagramIcon = styled(Instagram)`
-  ${hover}
-  ${iconStyle}
-`;
-const YoutubeIcon = styled(Youtube)`
-  ${hover}
-  ${iconStyle}
-`;
+// const InstagramIcon = styled(Instagram)`
+//   ${hover}
+//   ${iconStyle}
+// `;
+// const YoutubeIcon = styled(Youtube)`
+//   ${hover}
+//   ${iconStyle}
+// `;
 const LinkedInIcon = styled(LinkedIn)`
   ${hover}
   ${iconStyle}
