@@ -51,5 +51,4 @@ export const projectSlice = createSlice({
   reducers: {},
 });
 
-export const {} = projectSlice.actions;
 export default projectSlice.reducer;
