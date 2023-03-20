@@ -9,7 +9,7 @@ import Work from "./pages/Work";
 import NavBar from "./sections/NavBar";
 
 import background from "./assets/icons/background.svg";
-import { ReactComponent as Github } from "./assets/icons/github.svg";
+import { ReactComponent as Github } from "./assets/icons/github_outline.svg";
 import { ReactComponent as LinkedIn } from "./assets/icons/linkedin.svg";
 import { darkTheme } from "./styles/AppTheme";
 import { GlobalStyle, hover, iconStyle } from "./styles/Global";

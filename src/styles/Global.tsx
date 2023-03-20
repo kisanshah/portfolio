@@ -95,7 +95,6 @@ export const iconStyle = css`
 export const hover = css`
   cursor: pointer;
   color: ${(props) => props.theme.text};
-  fill: transparent;
   &:hover {
     color: ${(props) => props.theme.primary};
   }

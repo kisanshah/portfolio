@@ -1,49 +1,59 @@
 import React from "react";
 import Text from "src/components/Text";
+import { Project } from "src/store/types/project";
 import { hover, iconStyle } from "src/styles/Global";
 import styled from "styled-components";
 import { ReactComponent as AppStore } from "../assets/icons/appstore.svg";
-import { ReactComponent as Github } from "../assets/icons/github_color.svg";
+import { ReactComponent as Github } from "../assets/icons/github.svg";
 import { ReactComponent as PlayStore } from "../assets/icons/playstore.svg";
 import Header from "./Header";
-export default function Project() {
+
+type ProjectComponentProps = {
+  item: Project;
+};
+
+const ProjectComponent = ({ item }: ProjectComponentProps) => {
+  const openUrl = (link: string) => {
+    window.open(link, "_blank");
+  };
   return (
     <ProjectItem>
-      <ProjectImage
-        src={"https://flutterflow.io/images/dashboard_app_12x.png"}
-        alt="Image description"
-      />
-      <ProjectTitle>Drive Your Dream</ProjectTitle>
-      <ProjectDesc>
-        DYD – Drive Your Dream is a first-of-its-kind car service app.
-      </ProjectDesc>
+      <ProjectImage src={item.thumbnail} alt="Image description" />
+      <ProjectTitle>{item.title}</ProjectTitle>
+      <ProjectDesc>{item.description}</ProjectDesc>
       <IconWrapper>
-        <PlayStoreIcon />
-        <AppStoreIcon />
-        <GithubIcon />
+        {item.android !== "" && (
+          <PlayStoreIcon onClick={() => openUrl(item.android)} />
+        )}
+        {item.ios !== "" && <AppStoreIcon onClick={() => openUrl(item.ios)} />}
+        {item.github !== "" && <GithubIcon />}
       </IconWrapper>
     </ProjectItem>
   );
-}
+};
+
+export default ProjectComponent;
 
 const AppStoreIcon = styled(AppStore)`
   ${hover}
+  margin: 5px;
   ${iconStyle}
 `;
 const GithubIcon = styled(Github)`
   ${hover}
+  margin: 5px;
   ${iconStyle}
 `;
 const PlayStoreIcon = styled(PlayStore)`
   ${hover}
+  margin: 5px;
   ${iconStyle}
 `;
 
 const IconWrapper = styled.div`
   display: flex;
-  width: 40%;
-  justify-content: space-around;
-  margin-bottom: 10px;
+  justify-content: center;
+  margin: 15px 0px;
 `;
 
 const ProjectImage = styled.img`
@@ -64,7 +74,7 @@ const ProjectTitle = styled(Header)`
 const ProjectDesc = styled(Text)`
   margin-right: 20px;
   margin-left: 20px;
-  margin-bottom: 20px;
+  flex: 1;
   font-weight: 400;
   padding: 0px 10px;
   color: ${(props) => props.theme.subText};
@@ -78,7 +88,6 @@ const ProjectItem = styled.div`
   height: auto;
   border-width: 1px;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   border-color: #1d2429;

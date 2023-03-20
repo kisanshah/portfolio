@@ -46,6 +46,7 @@ const StyledSubText = styled.h1`
 const StyledParagraph = styled.p`
   font-weight: 400;
   font-size: 25px;
+  color: ${(props) => props.theme.subText};
 `;
 
 const float = keyframes`

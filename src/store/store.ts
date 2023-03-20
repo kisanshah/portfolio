@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import navbarReducer from "./reducers/navBarSlice";
+import projectReducer from "./reducers/projectSlice";
 import workReducer from "./reducers/workSlice";
 
 const store = configureStore({
   reducer: {
     navbar: navbarReducer,
     work: workReducer,
+    project: projectReducer,
   },
 });
 

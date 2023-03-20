@@ -103,6 +103,8 @@ const Name = styled.p`
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
+
+  color: ${(props) => props.theme.subText};
   &:active,
   &:hover {
     ${activeCss}
