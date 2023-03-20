@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import About from "./pages/About";
@@ -18,9 +18,9 @@ function App() {
   const openUrl = (link: string) => {
     window.open(link, "_blank");
   };
-  const [theme, setTheme] = useState("light");
-  const isDarkTheme = theme === "dark";
-  const toggleTheme = () => setTheme(isDarkTheme ? "light" : "dark");
+  // const [theme, setTheme] = useState("light");
+  // const isDarkTheme = theme === "dark";
+  // const toggleTheme = () => setTheme(isDarkTheme ? "light" : "dark");
 
   return (
     // <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
