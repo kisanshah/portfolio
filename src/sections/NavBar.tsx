@@ -1,19 +1,15 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Button from "src/components/Button";
 import styled from "styled-components";
 import Logo from "../components/Logo";
 import StyledLink from "../components/StyledLink";
-import { setCurrent } from "../store/reducers/navBarSlice";
 import { RootState } from "../store/store";
 
 export default function NavBar() {
   const items = useSelector((state: RootState) => state.navbar.navItems);
-  const dispatch = useDispatch();
-  const selectedItem = useSelector(
-    (state: RootState) => state.navbar.selectedItem
-  );
+
   const location = useLocation();
   const currentEndpoint = location.pathname;
 
@@ -23,9 +19,6 @@ export default function NavBar() {
       <NavLinkWrapper>
         {items.map((item) => (
           <StyledLink
-            onClick={() => {
-              dispatch(setCurrent(item));
-            }}
             key={item.id}
             to={item.route}
             active={item.route === currentEndpoint}
