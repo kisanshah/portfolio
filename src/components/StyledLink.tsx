@@ -10,6 +10,7 @@ const StyledLink = styled(Link)`
   flex: 1;
   text-decoration: none;
   font-weight: 500;
+  width: 90px;
   ${({ active }) => active && activeCss}
 `;
 

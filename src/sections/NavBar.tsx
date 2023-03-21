@@ -1,8 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Button from "src/components/Button";
+import { StyledIcon } from "src/pages/About";
+import { setTheme } from "src/store/reducers/themeSlice";
 import styled from "styled-components";
+import Moon from "../assets/icons/moon.svg";
+import Sun from "../assets/icons/sun.svg";
 import Logo from "../components/Logo";
 import StyledLink from "../components/StyledLink";
 import { RootState } from "../store/store";
@@ -12,6 +16,9 @@ export default function NavBar() {
 
   const location = useLocation();
   const currentEndpoint = location.pathname;
+
+  const dispatch = useDispatch();
+  const dark = useSelector((state: RootState) => state.theme.isDarkModeEnabled);
 
   return (
     <StyledNavBar>
@@ -27,6 +34,14 @@ export default function NavBar() {
           </StyledLink>
         ))}
       </NavLinkWrapper>
+      <Toggle>
+        <StyledIcon
+          src={dark ? Sun : Moon}
+          onClick={() => {
+            dispatch(setTheme(true as any));
+          }}
+        />
+      </Toggle>
       <Div>
         <ResumeButton>Resume</ResumeButton>
       </Div>
@@ -41,8 +56,7 @@ const Div = styled.div`
 const ResumeButton = styled(Button)`
   border-radius: 5px;
   font-size: 15px;
-  &:hover {
-  }
+  color: ${(props) => props.theme.bodyBg};
 `;
 
 const StyledNavBar = styled.nav`
@@ -50,6 +64,12 @@ const StyledNavBar = styled.nav`
   height: 64px;
   padding: 0px 5%;
   align-items: center;
+`;
+
+const Toggle = styled.div`
+  margin-left: 20px;
+  margin-top: 7px;
+  cursor: pointer;
 `;
 
 const NavLinkWrapper = styled.div`

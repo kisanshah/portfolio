@@ -74,9 +74,10 @@ const StyledAbout = styled.div`
   width: 70%;
 `;
 
-const StyledIcon = styled.img`
+export const StyledIcon = styled.img`
   height: 30px;
   width: 30px;
+  transition: all 10s;
 `;
 
 const IconGroup = styled.div`

@@ -38,13 +38,15 @@ const ContentWrapper = styled.div`
 
 const ContactText = styled(Text)`
   width: 70%;
-  /* text-align: justify; */
 `;
 const ContactButton = styled(Button)`
   width: 30%;
   margin-top: 20px;
   border-radius: 2px;
   font-size: 14px;
+  border-radius: 5px;
+  font-size: 15px;
+  color: ${(props) => props.theme.bodyBg};
 `;
 
 const Input = styled.textarea`

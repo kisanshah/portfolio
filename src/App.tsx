@@ -8,25 +8,31 @@ import Projects from "./pages/Projects";
 import Work from "./pages/Work";
 import NavBar from "./sections/NavBar";
 
+import { useSelector } from "react-redux";
 import background from "./assets/icons/background.svg";
 import { ReactComponent as Github } from "./assets/icons/github_outline.svg";
 import { ReactComponent as LinkedIn } from "./assets/icons/linkedin.svg";
-import { darkTheme } from "./styles/AppTheme";
+import { RootState } from "./store/store";
+import { darkTheme, lightTheme } from "./styles/AppTheme";
 import { GlobalStyle, hover, iconStyle } from "./styles/Global";
 
 function App() {
   const openUrl = (link: string) => {
     window.open(link, "_blank");
   };
-  // const [theme, setTheme] = useState("light");
-  // const isDarkTheme = theme === "dark";
-  // const toggleTheme = () => setTheme(isDarkTheme ? "light" : "dark");
+  const dark = useSelector((state: RootState) => state.theme.isDarkModeEnabled);
+  const theme = useSelector((state: RootState) => state.theme.theme);
+  let tempTheme = darkTheme;
+  if (theme.primary == undefined) {
+    tempTheme = dark ? darkTheme : lightTheme;
+  } else {
+    tempTheme = theme;
+  }
 
   return (
-    // <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={tempTheme}>
       <BrowserRouter>
-        <GlobalStyle theme={darkTheme} />
+        <GlobalStyle theme={tempTheme} />
         <NavBar />
         <AppDiv>
           <LeftDiv>
