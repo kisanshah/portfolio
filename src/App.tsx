@@ -23,7 +23,7 @@ function App() {
   const dark = useSelector((state: RootState) => state.theme.isDarkModeEnabled);
   const theme = useSelector((state: RootState) => state.theme.theme);
   let tempTheme = darkTheme;
-  if (theme.primary == undefined) {
+  if (theme.primary === undefined) {
     tempTheme = dark ? darkTheme : lightTheme;
   } else {
     tempTheme = theme;
