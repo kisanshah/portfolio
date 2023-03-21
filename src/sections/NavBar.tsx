@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import Button from "src/components/Button";
 import styled from "styled-components";
 import Logo from "../components/Logo";
@@ -13,6 +14,9 @@ export default function NavBar() {
   const selectedItem = useSelector(
     (state: RootState) => state.navbar.selectedItem
   );
+  const location = useLocation();
+  const currentEndpoint = location.pathname;
+
   return (
     <StyledNavBar>
       <Logo />
@@ -24,7 +28,7 @@ export default function NavBar() {
             }}
             key={item.id}
             to={item.route}
-            active={selectedItem?.id === item.id}
+            active={item.route === currentEndpoint}
           >
             {item.label}
           </StyledLink>
