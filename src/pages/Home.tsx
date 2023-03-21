@@ -72,7 +72,7 @@ const ImageContainer = styled.div`
   position: relative;
 `;
 
-const StyledImage = styled.img`
+export const StyledImage = styled.img`
   width: 320px;
   display: flex;
   justify-self: center;

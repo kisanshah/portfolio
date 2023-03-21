@@ -67,6 +67,7 @@ const RotatedEmail = styled.p`
   ${hover}
   rotate: 90deg;
   width: 420px;
+  margin-bottom: 10px;
 `;
 
 // const InstagramIcon = styled(Instagram)`

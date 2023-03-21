@@ -38,7 +38,7 @@ const ContentWrapper = styled.div`
 
 const ContactText = styled(Text)`
   width: 70%;
-  text-align: justify;
+  /* text-align: justify; */
 `;
 const ContactButton = styled(Button)`
   width: 30%;
