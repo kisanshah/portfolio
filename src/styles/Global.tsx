@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
 *::after {
   font-family: "Poppins";
   box-sizing: border-box;
-  
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
