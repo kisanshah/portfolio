@@ -15,7 +15,7 @@ export default function Home() {
         </StyledSubText>
       </TextWrapper>
       <ImageContainer>
-        <StyledImage src={profile} alt="Image description" />
+        <StyledImage src={profile} alt="Image description" loading="lazy" />
       </ImageContainer>
     </StyledHome>
   );
