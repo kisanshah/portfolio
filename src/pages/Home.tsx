@@ -23,6 +23,10 @@ export default function Home() {
 const StyledHome = styled.div`
   display: flex;
   height: calc(100vh - 90px);
+  @media screen and (max-width: 500px) {
+    display: block;
+    width: 100%;
+  }
 `;
 
 const TextWrapper = styled.p`
@@ -34,6 +38,9 @@ const TextWrapper = styled.p`
   font-weight: 900;
   letter-spacing: -1px;
   font-family: "Poppins";
+  @media screen and (max-width: 500px) {
+    margin: 0px;
+  }
 `;
 
 const StyledSubText = styled.h1`
@@ -41,12 +48,21 @@ const StyledSubText = styled.h1`
   color: ${(props) => props.theme.subText};
   font-size: 35px;
   line-height: 1.2;
+  @media screen and (max-width: 500px) {
+    font-size: 24px;
+    margin-top: 0px;
+    font-weight: 500;
+  }
 `;
 
 const StyledParagraph = styled.p`
   font-weight: 400;
   font-size: 25px;
   color: ${(props) => props.theme.subText};
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+    margin-top: 10%;
+  }
 `;
 
 const float = keyframes`
@@ -70,6 +86,11 @@ const ImageContainer = styled.div`
   background-color: ${(props) => props.theme.primary};
   overflow: clip;
   position: relative;
+  @media screen and (max-width: 500px) {
+    margin-top: 40px;
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 export const StyledImage = styled.img`
@@ -85,4 +106,7 @@ export const StyledImage = styled.img`
   transform: rotate(5deg);
   top: 40px;
   bottom: 0;
+  @media screen and (max-width: 500px) {
+    width: 275px;
+  }
 `;

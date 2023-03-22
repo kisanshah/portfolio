@@ -28,6 +28,9 @@ const ProjectWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   padding-bottom: 40px;
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 const StyledProject = styled.div`
   padding-top: 10%;

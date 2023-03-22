@@ -114,6 +114,9 @@ const LeftDiv = styled.div`
   display: flex;
   justify-items: center;
   align-items: flex-end;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 const InnerDiv = styled.div`
   width: 100px;

@@ -79,6 +79,10 @@ const ListItem = styled.li`
 `;
 const Company = styled.div`
   display: flex;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    margin-top: -40px;
+  }
 `;
 const CompanyNameSection = styled.div`
   margin-right: 50px;
@@ -88,6 +92,10 @@ const CompanyDetailSection = styled.div`
   padding: 20px;
   background-color: ${(props) => props.theme.tintBg};
   border-radius: ${(props) => props.theme.radius};
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    margin: 20px 0px;
+  }
 `;
 const activeCss = css`
   border-left: 3px solid ${(props) => props.theme.primary};
@@ -95,7 +103,6 @@ const activeCss = css`
   background-color: ${(props) => props.theme.tintBg};
 `;
 const Name = styled.p`
-  display: flex;
   padding: 10px;
   border-left: 3px solid transparent;
   align-items: center;

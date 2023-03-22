@@ -38,6 +38,9 @@ const ContentWrapper = styled.div`
 
 const ContactText = styled(Text)`
   width: 70%;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 const ContactButton = styled(Button)`
   width: 30%;
@@ -47,6 +50,9 @@ const ContactButton = styled(Button)`
   border-radius: 5px;
   font-size: 15px;
   color: ${(props) => props.theme.bodyBg};
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const Input = styled.textarea`
@@ -64,4 +70,7 @@ const Input = styled.textarea`
   border-radius: 3px;
   resize: vertical;
   outline: none;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Button from "src/components/Button";
 import { StyledIcon } from "src/pages/About";
 import { setTheme } from "src/store/reducers/themeSlice";
 import styled from "styled-components";
+import { ReactComponent as Menu } from "../assets/icons/menu.svg";
 import Moon from "../assets/icons/moon.svg";
 import Sun from "../assets/icons/sun.svg";
 import Logo from "../components/Logo";
@@ -12,23 +13,31 @@ import StyledLink from "../components/StyledLink";
 import { RootState } from "../store/store";
 
 export default function NavBar() {
-  const items = useSelector((state: RootState) => state.navbar.navItems);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const items = useSelector((state: RootState) => state.navbar.navItems);
   const location = useLocation();
   const currentEndpoint = location.pathname;
-
   const dispatch = useDispatch();
   const dark = useSelector((state: RootState) => state.theme.isDarkModeEnabled);
 
   return (
     <StyledNavBar>
+      <Hamburger
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+      />
       <Logo />
-      <NavLinkWrapper>
+      <NavLinkWrapper isOpen={isOpen}>
         {items.map((item) => (
           <StyledLink
             key={item.id}
             to={item.route}
             active={item.route === currentEndpoint}
+            onClick={() => {
+              setIsOpen(false);
+            }}
           >
             {item.label}
           </StyledLink>
@@ -72,7 +81,29 @@ const Toggle = styled.div`
   cursor: pointer;
 `;
 
+const Hamburger = styled(Menu)`
+  visibility: hidden;
+  cursor: pointer;
+  padding-right: 5px;
+  height: 35px;
+  width: 35px;
+  fill: ${(props) => props.theme.text};
+  @media screen and (max-width: 500px) {
+    visibility: visible;
+  }
+`;
+
 const NavLinkWrapper = styled.div`
   display: flex;
   flex: 1;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: ${(props) => props.theme.tintBg};
+    top: 0;
+    height: 40%;
+    visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+  }
 `;

@@ -12,6 +12,13 @@ const StyledLink = styled(Link)`
   font-weight: 500;
   width: 90px;
   ${({ active }) => active && activeCss}
+  @media screen and (max-width: 500px) {
+    display: flex;
+    height: 10%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export default StyledLink;

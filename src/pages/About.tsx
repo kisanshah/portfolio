@@ -72,19 +72,29 @@ export default function About() {
 const StyledAbout = styled.div`
   padding-top: 10%;
   width: 70%;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const StyledIcon = styled.img`
   height: 30px;
   width: 30px;
-  transition: all 10s;
+  @media screen and (max-width: 500px) {
+    /* margin-right: 10px; */
+  }
 `;
 
 const IconGroup = styled.div`
+  margin-top: 20px;
   display: inline-grid;
   grid-template-columns: repeat(5, auto);
   padding-bottom: 40px;
   grid-gap: 20px;
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+  }
 `;
 
 const IconWrapper = styled.div`
