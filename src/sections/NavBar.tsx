@@ -36,7 +36,6 @@ export default function NavBar() {
     const sections = document.querySelectorAll("section[id]");
 
     window.addEventListener("scroll", navHighlighter);
-    console.log(sections);
     function navHighlighter() {
       let scrollY = window.pageYOffset;
 
@@ -46,7 +45,6 @@ export default function NavBar() {
         let sectionId = current.getAttribute("id");
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          console.log(`Active : ` + sectionId);
           dispatch(setCurrentNav(sectionId as any));
         }
       });

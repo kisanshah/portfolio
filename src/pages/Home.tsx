@@ -27,6 +27,7 @@ const StyledHome = styled.section`
   @media screen and (max-width: 500px) {
     display: block;
     width: 100%;
+    margin-top: 100px;
   }
 `;
 

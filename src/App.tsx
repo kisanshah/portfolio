@@ -46,9 +46,9 @@ function App() {
           </LeftDiv>
           <CenterDiv>
             <Home />
-            <About />
-            <Work />
             <Projects />
+            <Work />
+            <About />
             <Contact />
           </CenterDiv>
           <LeftDiv>
