@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 import Button from "src/components/Button";
 import { StyledIcon } from "src/pages/About";
 import { setCurrentNav } from "src/store/reducers/navBarSlice";
@@ -13,9 +12,6 @@ import Sun from "../assets/icons/sun.svg";
 import Logo from "../components/Logo";
 import StyledLink from "../components/StyledLink";
 import { RootState } from "../store/store";
-interface NavHeader {
-  headerRef: React.RefObject<any>;
-}
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +19,6 @@ export default function NavBar() {
   const items = useSelector((state: RootState) => state.navbar.navItems);
   const currentNav = useSelector((state: RootState) => state.navbar.current);
 
-  const location = useLocation();
-  const currentEndpoint = location.pathname;
   const dispatch = useDispatch();
   const dark = useSelector((state: RootState) => state.theme.isDarkModeEnabled);
   const scroll = (path: string) => {
@@ -49,9 +43,7 @@ export default function NavBar() {
         }
       });
     }
-
-    // return window.removeEventListener("scroll", navHighlighter);
-  }, []);
+  });
 
   return (
     <StyledNavBar>
@@ -66,7 +58,7 @@ export default function NavBar() {
           <StyledLink
             key={item.id}
             to={item.route}
-            active={currentNav == item.route.replace("/#", "")}
+            active={currentNav === item.route.replace("/#", "")}
             onClick={() => {
               setIsOpen(false);
               scroll(item.route);
