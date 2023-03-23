@@ -119,7 +119,7 @@ const Name = styled.p`
   ${({ active }) => active && activeCss}
 `;
 
-const StyledWork = styled.div`
+const StyledWork = styled.section`
   padding-top: 10%;
   min-height: 100vh;
 `;

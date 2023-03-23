@@ -21,7 +21,7 @@ export default function Home() {
     </StyledHome>
   );
 }
-const StyledHome = styled.div`
+const StyledHome = styled.section`
   display: flex;
   min-height: 100vh;
   @media screen and (max-width: 500px) {

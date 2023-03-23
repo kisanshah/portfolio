@@ -69,7 +69,7 @@ export default function About() {
   );
 }
 
-const StyledAbout = styled.div`
+const StyledAbout = styled.section`
   padding-top: 10%;
   width: 70%;
   min-height: 100vh;

@@ -32,7 +32,7 @@ const ProjectWrapper = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 `;
-const StyledProject = styled.div`
+const StyledProject = styled.section`
   padding-top: 10%;
   width: 100%;
   height: auto;

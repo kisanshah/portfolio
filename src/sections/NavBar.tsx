@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Button from "src/components/Button";
 import { StyledIcon } from "src/pages/About";
+import { setCurrentNav } from "src/store/reducers/navBarSlice";
 import { setTheme } from "src/store/reducers/themeSlice";
 import styled, { keyframes } from "styled-components";
 import { ReactComponent as Cancel } from "../assets/icons/cancel.svg";
@@ -12,11 +13,16 @@ import Sun from "../assets/icons/sun.svg";
 import Logo from "../components/Logo";
 import StyledLink from "../components/StyledLink";
 import { RootState } from "../store/store";
+interface NavHeader {
+  headerRef: React.RefObject<any>;
+}
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const items = useSelector((state: RootState) => state.navbar.navItems);
+  const currentNav = useSelector((state: RootState) => state.navbar.current);
+
   const location = useLocation();
   const currentEndpoint = location.pathname;
   const dispatch = useDispatch();
@@ -25,6 +31,29 @@ export default function NavBar() {
     const section = document.querySelector(path);
     section.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+
+    window.addEventListener("scroll", navHighlighter);
+    console.log(sections);
+    function navHighlighter() {
+      let scrollY = window.pageYOffset;
+
+      sections.forEach((current: HTMLElement) => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 50;
+        let sectionId = current.getAttribute("id");
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          console.log(`Active : ` + sectionId);
+          dispatch(setCurrentNav(sectionId as any));
+        }
+      });
+    }
+
+    // return window.removeEventListener("scroll", navHighlighter);
+  }, []);
 
   return (
     <StyledNavBar>
@@ -39,7 +68,7 @@ export default function NavBar() {
           <StyledLink
             key={item.id}
             to={item.route}
-            active={item.route === currentEndpoint}
+            active={currentNav == item.route.replace("/#", "")}
             onClick={() => {
               setIsOpen(false);
               scroll(item.route);
@@ -89,11 +118,6 @@ const StyledNavBar = styled.nav`
   align-items: center;
   position: fixed;
   z-index: 2;
-  /* @media screen and (max-width: 500px) {
-    position: absolute;
-    top: 0;
-    left: 0;
-  } */
 `;
 
 const Toggle = styled.div`

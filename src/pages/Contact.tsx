@@ -25,7 +25,7 @@ export default function Contact() {
   );
 }
 
-const StyledContact = styled.div`
+const StyledContact = styled.section`
   padding-top: 10%;
   width: 100%;
   min-height: 100vh;
