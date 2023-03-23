@@ -21,7 +21,7 @@ export default function Work() {
   };
 
   return (
-    <StyledWork>
+    <StyledWork id="work">
       <Header>Where I’ve Worked</Header>
       <Gap height="60px" />
       <Company>
@@ -121,4 +121,5 @@ const Name = styled.p`
 
 const StyledWork = styled.div`
   padding-top: 10%;
+  min-height: 100vh;
 `;

@@ -3,9 +3,10 @@ import Gap from "src/components/Gap";
 import Header from "src/components/Header";
 import styled, { keyframes } from "styled-components";
 import profile from "../assets/images/profile.png";
+
 export default function Home() {
   return (
-    <StyledHome>
+    <StyledHome id="home">
       <TextWrapper>
         <StyledParagraph>Hi, my name is</StyledParagraph>
         <Gap height="5px" />
@@ -22,7 +23,7 @@ export default function Home() {
 }
 const StyledHome = styled.div`
   display: flex;
-  height: calc(100vh - 90px);
+  min-height: 100vh;
   @media screen and (max-width: 500px) {
     display: block;
     width: 100%;
@@ -83,6 +84,7 @@ const ImageContainer = styled.div`
   height: 400px;
   width: 400px;
   border-radius: 20000px;
+  z-index: -1;
   background-color: ${(props) => props.theme.primary};
   overflow: clip;
   position: relative;

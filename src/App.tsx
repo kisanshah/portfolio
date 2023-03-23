@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -45,13 +45,11 @@ function App() {
             </InnerDiv>
           </LeftDiv>
           <CenterDiv>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/work" element={<Work />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
+            <Home />
+            <About />
+            <Work />
+            <Projects />
+            <Contact />
           </CenterDiv>
           <LeftDiv>
             <InnerDiv>

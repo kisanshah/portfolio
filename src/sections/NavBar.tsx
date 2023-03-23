@@ -4,7 +4,8 @@ import { useLocation } from "react-router-dom";
 import Button from "src/components/Button";
 import { StyledIcon } from "src/pages/About";
 import { setTheme } from "src/store/reducers/themeSlice";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { ReactComponent as Cancel } from "../assets/icons/cancel.svg";
 import { ReactComponent as Menu } from "../assets/icons/menu.svg";
 import Moon from "../assets/icons/moon.svg";
 import Sun from "../assets/icons/sun.svg";
@@ -20,6 +21,10 @@ export default function NavBar() {
   const currentEndpoint = location.pathname;
   const dispatch = useDispatch();
   const dark = useSelector((state: RootState) => state.theme.isDarkModeEnabled);
+  const scroll = (path: string) => {
+    const section = document.querySelector(path);
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <StyledNavBar>
@@ -37,11 +42,17 @@ export default function NavBar() {
             active={item.route === currentEndpoint}
             onClick={() => {
               setIsOpen(false);
+              scroll(item.route);
             }}
           >
             {item.label}
           </StyledLink>
         ))}
+        <CancelIcon
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        />
       </NavLinkWrapper>
       <Toggle>
         <StyledIcon
@@ -70,9 +81,19 @@ const ResumeButton = styled(Button)`
 
 const StyledNavBar = styled.nav`
   display: flex;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(2A, 100, 100, 0.5);
   height: 64px;
   padding: 0px 5%;
   align-items: center;
+  position: fixed;
+  z-index: 2;
+  /* @media screen and (max-width: 500px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  } */
 `;
 
 const Toggle = styled.div`
@@ -92,6 +113,14 @@ const Hamburger = styled(Menu)`
     visibility: visible;
   }
 `;
+const slide = keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
 
 const NavLinkWrapper = styled.div`
   display: flex;
@@ -103,7 +132,23 @@ const NavLinkWrapper = styled.div`
     right: 0;
     background-color: ${(props) => props.theme.tintBg};
     top: 0;
-    height: 40%;
-    visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+    z-index: 3;
+    height: 100vh;
+    display: ${({ isOpen }) => (isOpen ? "inline" : "none")};
+    animation: ${slide} 1s ease-in-out forwards;
+  }
+`;
+
+const CancelIcon = styled(Cancel)`
+  display: none;
+  @media screen and (max-width: 500px) {
+    stroke: ${(props) => props.theme.text};
+    display: flex;
+    height: 10%;
+    padding: 3%;
+    object-fit: contain;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
 `;

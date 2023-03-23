@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 export default function Contact() {
   return (
-    <StyledContact>
+    <StyledContact id="contact">
       <Header>Get In Touch</Header>
       <Gap height="20px" />
       <ContentWrapper>
@@ -28,6 +28,7 @@ export default function Contact() {
 const StyledContact = styled.div`
   padding-top: 10%;
   width: 100%;
+  min-height: 100vh;
 `;
 
 const ContentWrapper = styled.div`

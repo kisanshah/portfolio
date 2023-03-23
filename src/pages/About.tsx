@@ -35,7 +35,7 @@ export default function About() {
     Postman,
   ];
   return (
-    <StyledAbout>
+    <StyledAbout id="about">
       <Header>About Me</Header>
       <Gap height="20px" />
       <Text>
@@ -72,6 +72,7 @@ export default function About() {
 const StyledAbout = styled.div`
   padding-top: 10%;
   width: 70%;
+  min-height: 100vh;
   @media screen and (max-width: 500px) {
     width: 100%;
   }

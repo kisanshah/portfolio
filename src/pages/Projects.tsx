@@ -10,7 +10,7 @@ export default function Projects() {
   const projects = useSelector((state: RootState) => state.project);
 
   return (
-    <StyledProject>
+    <StyledProject id="projects">
       <Header>Projects</Header>
       <Gap height="50px" />
       <ProjectWrapper>
@@ -35,4 +35,6 @@ const ProjectWrapper = styled.div`
 const StyledProject = styled.div`
   padding-top: 10%;
   width: 100%;
+  height: auto;
+  min-height: 100vh;
 `;
