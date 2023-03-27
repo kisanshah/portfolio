@@ -1,19 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Gap from "src/components/Gap";
 import Header from "src/components/Header";
 import styled, { keyframes } from "styled-components";
 import profile from "../assets/images/profile.png";
 
 export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const items = [
+    <StyledParagraph>Hi, my name is</StyledParagraph>,
+    <Gap height="5px" />,
+    <Header>Kisan Shah</Header>,
+    <StyledSubText>
+      I love building things for the mobile using flutter & android.
+    </StyledSubText>,
+  ];
+
   return (
     <StyledHome id="home">
       <TextWrapper>
-        <StyledParagraph>Hi, my name is</StyledParagraph>
-        <Gap height="5px" />
-        <Header>Kisan Shah</Header>
-        <StyledSubText>
-          I love building things for the mobile using flutter & android.
-        </StyledSubText>
+        <TransitionGroup component={null}>
+          {isMounted &&
+            items.map((item, i) => (
+              <CSSTransition key={i} classNames="fadeup" timeout={2000}>
+                <div style={{ transitionDelay: `${i + 2}00ms` }}>{item}</div>
+              </CSSTransition>
+            ))}
+        </TransitionGroup>
       </TextWrapper>
       <ImageContainer>
         <StyledImage src={profile} alt="Image description" loading="lazy" />
