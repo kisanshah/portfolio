@@ -7,9 +7,14 @@ import profile from "../assets/images/profile.png";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
+  // const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 0);
+    // if (prefersReducedMotion) {
+    //   return;
+    // }
+
+    const timeout = setTimeout(() => setIsMounted(true), 2000);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -29,7 +34,7 @@ export default function Home() {
           {isMounted &&
             items.map((item, i) => (
               <CSSTransition key={i} classNames="fadeup" timeout={2000}>
-                <div style={{ transitionDelay: `${i + 2}00ms` }}>{item}</div>
+                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
               </CSSTransition>
             ))}
         </TransitionGroup>

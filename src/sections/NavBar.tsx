@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Button from "src/components/Button";
 import { StyledIcon } from "src/pages/About";
 import { setCurrentNav } from "src/store/reducers/navBarSlice";
@@ -9,12 +10,18 @@ import { ReactComponent as Cancel } from "../assets/icons/cancel.svg";
 import { ReactComponent as Menu } from "../assets/icons/menu.svg";
 import Moon from "../assets/icons/moon.svg";
 import Sun from "../assets/icons/sun.svg";
-import Logo from "../components/Logo";
+import { StyledLogo } from "../components/Logo";
 import StyledLink from "../components/StyledLink";
 import { RootState } from "../store/store";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const items = useSelector((state: RootState) => state.navbar.navItems);
   const currentNav = useSelector((state: RootState) => state.navbar.current);
@@ -52,38 +59,65 @@ export default function NavBar() {
           setIsOpen(!isOpen);
         }}
       />
-      <Logo />
+      <TransitionGroup component={null}>
+        {isMounted && (
+          <CSSTransition classNames={"fadedown"} timeout={1000}>
+            <StyledLogo style={{ transitionDelay: `200ms` }}>
+              {"{KS}"}
+            </StyledLogo>
+          </CSSTransition>
+        )}
+      </TransitionGroup>
+
       <NavLinkWrapper isOpen={isOpen}>
-        {items.map((item) => (
-          <StyledLink
-            key={item.id}
-            to={item.route}
-            active={currentNav === item.route.replace("/#", "")}
-            onClick={() => {
-              setIsOpen(false);
-              scroll(item.route);
-            }}
-          >
-            {item.label}
-          </StyledLink>
-        ))}
+        <TransitionGroup component={null}>
+          {isMounted &&
+            items.map((item, i) => (
+              <CSSTransition key={i} classNames="fadedown" timeout={1000}>
+                <StyledLink
+                  style={{ transitionDelay: `${i + 3}00ms` }}
+                  key={item.id}
+                  to={item.route}
+                  active={currentNav === item.route.replace("/#", "")}
+                  onClick={() => {
+                    setIsOpen(false);
+                    scroll(item.route);
+                  }}
+                >
+                  {item.label}
+                </StyledLink>
+              </CSSTransition>
+            ))}
+        </TransitionGroup>
         <CancelIcon
           onClick={() => {
             setIsOpen(false);
           }}
         />
       </NavLinkWrapper>
-      <Toggle>
-        <StyledIcon
-          src={dark ? Sun : Moon}
-          onClick={() => {
-            dispatch(setTheme(true as any));
-          }}
-        />
-      </Toggle>
-      <Div>
-        <ResumeButton>Resume</ResumeButton>
-      </Div>
+      <TransitionGroup component={null}>
+        {isMounted && (
+          <CSSTransition classNames={"fadedown"} timeout={1000}>
+            <Toggle style={{ transitionDelay: `750ms` }}>
+              <StyledIcon
+                src={dark ? Sun : Moon}
+                onClick={() => {
+                  dispatch(setTheme(true as any));
+                }}
+              />
+            </Toggle>
+          </CSSTransition>
+        )}
+      </TransitionGroup>
+      <TransitionGroup component={null}>
+        {isMounted && (
+          <CSSTransition classNames={"fadedown"} timeout={100}>
+            <Div style={{ transitionDelay: `900ms` }}>
+              <ResumeButton>Resume</ResumeButton>
+            </Div>
+          </CSSTransition>
+        )}
+      </TransitionGroup>
     </StyledNavBar>
   );
 }

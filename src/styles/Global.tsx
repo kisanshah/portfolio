@@ -3,7 +3,7 @@ import { createGlobalStyle, css } from "styled-components";
 import TransitionStyles from "./TransitionStyles";
 import variables from "./variable";
 export const GlobalStyle = createGlobalStyle`
-${variables},
+
 *,
 *::before,
 *::after {
@@ -88,6 +88,7 @@ body {
    transition: all ${(props) => props.theme.transitionTime};
  }
  ${TransitionStyles}
+ ${variables}
 `;
 
 export const iconStyle = css`
