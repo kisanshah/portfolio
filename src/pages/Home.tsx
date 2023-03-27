@@ -55,7 +55,7 @@ const StyledHome = styled.section`
   }
 `;
 
-const TextWrapper = styled.p`
+const TextWrapper = styled.div`
   flex: 2;
   margin: 0 50px 50px 0;
   align-self: center;

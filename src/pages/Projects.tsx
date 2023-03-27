@@ -14,8 +14,8 @@ export default function Projects() {
       <Header>Projects</Header>
       <Gap height="50px" />
       <ProjectWrapper>
-        {projects.map((e) => (
-          <ProjectComponent item={e} />
+        {projects.map((item, index) => (
+          <ProjectComponent item={item} key={index} />
         ))}
       </ProjectWrapper>
     </StyledProject>

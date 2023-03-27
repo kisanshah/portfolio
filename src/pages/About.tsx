@@ -59,9 +59,9 @@ export default function About() {
       <Gap height="20px" />
       <SubHeader>Tech Stack & Tools</SubHeader>
       <IconGroup>
-        {icons.map((e) => (
-          <IconWrapper>
-            <StyledIcon src={e} />
+        {icons.map((item, index) => (
+          <IconWrapper key={index}>
+            <StyledIcon src={item} />
           </IconWrapper>
         ))}
       </IconGroup>
