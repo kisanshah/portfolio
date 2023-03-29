@@ -1,4 +1,5 @@
 import React from "react";
+import { AppUtils } from "src/utils/AppUtils";
 import styled from "styled-components";
 import Android from "../assets/icons/android.svg";
 import Bitbucket from "../assets/icons/bitbucket.svg";
@@ -17,9 +18,6 @@ import Header, { SubHeader } from "../components/Header";
 import Span, { ClickableSpan } from "../components/Span";
 import Text from "../components/Text";
 export default function About() {
-  const openUrl = (link: string) => {
-    window.open(link, "_blank");
-  };
   let icons = [
     Android,
     Flutter,
@@ -44,13 +42,17 @@ export default function About() {
         advancements in mobile app development and enjoy sharing my programming
         tips on social media platforms like{" "}
         <ClickableSpan
-          onClick={() => openUrl("https://www.instagram.com/simplekoder/")}
+          onClick={() =>
+            AppUtils.openUrl("https://www.instagram.com/simplekoder/")
+          }
         >
           Instagram
         </ClickableSpan>{" "}
         and{" "}
         <ClickableSpan
-          onClick={() => openUrl("https://www.youtube.com/c/SimpleKoder")}
+          onClick={() =>
+            AppUtils.openUrl("https://www.youtube.com/c/SimpleKoder")
+          }
         >
           YouTube
         </ClickableSpan>

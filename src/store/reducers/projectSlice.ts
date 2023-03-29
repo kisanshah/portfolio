@@ -7,7 +7,7 @@ const initialState: Project[] = [
       "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/projects%2Fthumbnail%2Fcoachvikram.png?alt=media&token=ae5f75ea-f3e1-4e6d-a99d-d7b40c709790",
     title: "Coach Vikram",
     description:
-      "DYD app has been meticulously designed to provide the best-in-class car services. Each car deserves personal attention when it comes to servicing.",
+      "This App is designed to help corporate professionals enhance their personal and professional skills through targeted training modules.",
     android: "",
     ios: "",
     github: "",

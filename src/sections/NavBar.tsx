@@ -5,6 +5,7 @@ import Button from "src/components/Button";
 import { StyledIcon } from "src/pages/About";
 import { setCurrentNav } from "src/store/reducers/navBarSlice";
 import { setTheme } from "src/store/reducers/themeSlice";
+import { AppUtils } from "src/utils/AppUtils";
 import styled, { keyframes } from "styled-components";
 import { ReactComponent as Cancel } from "../assets/icons/cancel.svg";
 import { ReactComponent as Menu } from "../assets/icons/menu.svg";
@@ -113,7 +114,15 @@ export default function NavBar() {
         {isMounted && (
           <CSSTransition classNames={"fadedown"} timeout={2000}>
             <Div style={{ transitionDelay: `1300ms` }}>
-              <ResumeButton>Resume</ResumeButton>
+              <ResumeButton
+                onClick={() => {
+                  AppUtils.openUrl(
+                    "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/resume.pdf?alt=media&token=365daef9-5b45-42ac-a09a-d08a8b2a81e0"
+                  );
+                }}
+              >
+                Resume
+              </ResumeButton>
             </Div>
           </CSSTransition>
         )}

@@ -7,6 +7,7 @@ const Span = styled.span`
 
 export const ClickableSpan = styled(Span)`
   cursor: pointer;
+  color: ${(props) => props.theme.primary};
 `;
 
 export default Span;

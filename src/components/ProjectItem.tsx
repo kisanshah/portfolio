@@ -2,6 +2,7 @@ import React from "react";
 import Text from "src/components/Text";
 import { Project } from "src/store/types/project";
 import { hover, iconStyle } from "src/styles/Global";
+import { AppUtils } from "src/utils/AppUtils";
 import styled from "styled-components";
 import { ReactComponent as AppStore } from "../assets/icons/appstore.svg";
 import { ReactComponent as Github } from "../assets/icons/github.svg";
@@ -13,9 +14,6 @@ type ProjectComponentProps = {
 };
 
 const ProjectComponent = ({ item }: ProjectComponentProps) => {
-  const openUrl = (link: string) => {
-    window.open(link, "_blank");
-  };
   return (
     <ProjectItem>
       <ProjectImage src={item.thumbnail} alt="Image description" />
@@ -23,9 +21,11 @@ const ProjectComponent = ({ item }: ProjectComponentProps) => {
       <ProjectDesc>{item.description}</ProjectDesc>
       <IconWrapper>
         {item.android !== "" && (
-          <PlayStoreIcon onClick={() => openUrl(item.android)} />
+          <PlayStoreIcon onClick={() => AppUtils.openUrl(item.android)} />
         )}
-        {item.ios !== "" && <AppStoreIcon onClick={() => openUrl(item.ios)} />}
+        {item.ios !== "" && (
+          <AppStoreIcon onClick={() => AppUtils.openUrl(item.ios)} />
+        )}
         {item.github !== "" && <GithubIcon />}
       </IconWrapper>
     </ProjectItem>

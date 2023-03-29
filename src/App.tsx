@@ -16,6 +16,7 @@ import { ReactComponent as LinkedIn } from "./assets/icons/linkedin.svg";
 import { RootState } from "./store/store";
 import { darkTheme, lightTheme } from "./styles/AppTheme";
 import { GlobalStyle, hover, iconStyle } from "./styles/Global";
+import { AppUtils } from "./utils/AppUtils";
 
 function App() {
   const [isMounted, setIsMounted] = useState(false);
@@ -29,9 +30,7 @@ function App() {
     const timeout = setTimeout(() => setIsMounted(true), 1000);
     return () => clearTimeout(timeout);
   }, []);
-  const openUrl = (link: string) => {
-    window.open(link, "_blank");
-  };
+
   const dark = useSelector((state: RootState) => state.theme.isDarkModeEnabled);
   const theme = useSelector((state: RootState) => state.theme.theme);
   let tempTheme = darkTheme;
@@ -52,9 +51,19 @@ function App() {
               <CSSTransition classNames={"fade"} timeout={1000}>
                 <LeftDiv style={{ transitionDelay: `400ms` }}>
                   <InnerDiv>
-                    <GithubIcon />
+                    <GithubIcon
+                      onClick={() =>
+                        AppUtils.openUrl("https://github.com/kisanshah")
+                      }
+                    />
                     {/* <InstagramIcon /> */}
-                    <LinkedInIcon />
+                    <LinkedInIcon
+                      onClick={() =>
+                        AppUtils.openUrl(
+                          "https://www.linkedin.com/in/kisan-shah-73a58317b/"
+                        )
+                      }
+                    />
                     {/* <YoutubeIcon /> */}
                     <Line />
                   </InnerDiv>
@@ -76,7 +85,9 @@ function App() {
                 <LeftDiv style={{ transitionDelay: `400ms` }}>
                   <InnerDiv>
                     <RotatedEmail
-                      onClick={() => openUrl("mailto:shahkisan64@gmail.com")}
+                      onClick={() =>
+                        AppUtils.openUrl("mailto:shahkisan64@gmail.com")
+                      }
                     >
                       shahkisan64@gmail.com
                     </RotatedEmail>

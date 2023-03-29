@@ -10,15 +10,13 @@ import { useDispatch, useSelector } from "react-redux";
 import SubText from "src/components/SubText";
 import { setCurrentCompany } from "src/store/reducers/workSlice";
 import { RootState } from "src/store/store";
+import { AppUtils } from "src/utils/AppUtils";
 
 export default function Work() {
   const companies = useSelector((state: RootState) => state.work.companies);
   const selected =
     useSelector((state: RootState) => state.work.selected) ?? companies[0];
   const dispatch = useDispatch();
-  const openUrl = (link: string) => {
-    window.open(link, "_blank");
-  };
 
   return (
     <StyledWork id="work">
@@ -41,11 +39,11 @@ export default function Work() {
         <CompanyDetailSection>
           <SubText fontSize="20px">
             {selected.label}
-            <ClickableSpan onClick={() => openUrl(selected.link)}>
+            <ClickableSpan onClick={() => AppUtils.openUrl(selected.link)}>
               {` @` + selected.company}
             </ClickableSpan>
             <LineBreak />
-            <Paragraph>May 2021 - Jul 2021 · 3 mos</Paragraph>
+            <Paragraph>{selected.period}</Paragraph>
             <Gap height="10px" />
           </SubText>
           <ListWrapper>
