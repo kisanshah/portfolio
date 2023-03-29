@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { darkTheme, lightTheme } from "src/styles/AppTheme";
 const savedThemePreference = localStorage.getItem("themePreference");
-const dark = savedThemePreference ? savedThemePreference === "dark" : false;
+const dark = savedThemePreference ? savedThemePreference === "dark" : true;
 
 const lightThemeTemp = structuredClone(lightTheme);
 const darkThemeTemp = structuredClone(darkTheme);
