@@ -5,7 +5,7 @@ import { css } from "styled-components";
 const TransitionStyles = css`
   /* Fade up */
   .fadeup-enter {
-    opacity: 0.01;
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
@@ -18,7 +18,7 @@ const TransitionStyles = css`
 
   /* Fade down */
   .fadedown-enter {
-    opacity: 0.01;
+    opacity: 0;
     transform: translateY(-20px);
     transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
@@ -26,6 +26,19 @@ const TransitionStyles = css`
   .fadedown-enter-active {
     opacity: 1;
     transform: translateY(0px);
+    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+  }
+
+  /* Fade up */
+  .faderight-enter {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+  }
+
+  .faderight-enter-active {
+    opacity: 1;
+    transform: translateX(0px);
     transition: opacity 300ms var(--easing), transform 300ms var(--easing);
   }
 

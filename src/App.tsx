@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styled, { ThemeProvider } from "styled-components";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -17,6 +18,17 @@ import { darkTheme, lightTheme } from "./styles/AppTheme";
 import { GlobalStyle, hover, iconStyle } from "./styles/Global";
 
 function App() {
+  const [isMounted, setIsMounted] = useState(false);
+  // const prefersReducedMotion = usePrefersReducedMotion();
+
+  useEffect(() => {
+    // if (prefersReducedMotion) {
+    //   return;
+    // }
+
+    const timeout = setTimeout(() => setIsMounted(true), 1000);
+    return () => clearTimeout(timeout);
+  }, []);
   const openUrl = (link: string) => {
     window.open(link, "_blank");
   };
@@ -35,15 +47,22 @@ function App() {
         <GlobalStyle theme={tempTheme} />
         <NavBar />
         <AppDiv>
-          <LeftDiv>
-            <InnerDiv>
-              <GithubIcon />
-              {/* <InstagramIcon /> */}
-              <LinkedInIcon />
-              {/* <YoutubeIcon /> */}
-              <Line />
-            </InnerDiv>
-          </LeftDiv>
+          <TransitionGroup component={null}>
+            {isMounted && (
+              <CSSTransition classNames={"fade"} timeout={1000}>
+                <LeftDiv style={{ transitionDelay: `400ms` }}>
+                  <InnerDiv>
+                    <GithubIcon />
+                    {/* <InstagramIcon /> */}
+                    <LinkedInIcon />
+                    {/* <YoutubeIcon /> */}
+                    <Line />
+                  </InnerDiv>
+                </LeftDiv>
+              </CSSTransition>
+            )}
+          </TransitionGroup>
+
           <CenterDiv>
             <Home />
             <Projects />
@@ -51,16 +70,22 @@ function App() {
             <About />
             <Contact />
           </CenterDiv>
-          <LeftDiv>
-            <InnerDiv>
-              <RotatedEmail
-                onClick={() => openUrl("mailto:shahkisan64@gmail.com")}
-              >
-                shahkisan64@gmail.com
-              </RotatedEmail>
-              <Line />
-            </InnerDiv>
-          </LeftDiv>
+          <TransitionGroup component={null}>
+            {isMounted && (
+              <CSSTransition classNames={"fade"} timeout={1000}>
+                <LeftDiv style={{ transitionDelay: `400ms` }}>
+                  <InnerDiv>
+                    <RotatedEmail
+                      onClick={() => openUrl("mailto:shahkisan64@gmail.com")}
+                    >
+                      shahkisan64@gmail.com
+                    </RotatedEmail>
+                    <Line />
+                  </InnerDiv>
+                </LeftDiv>
+              </CSSTransition>
+            )}
+          </TransitionGroup>
         </AppDiv>
       </BrowserRouter>
     </ThemeProvider>

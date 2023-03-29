@@ -73,9 +73,9 @@ export default function NavBar() {
         <TransitionGroup component={null}>
           {isMounted &&
             items.map((item, i) => (
-              <CSSTransition key={i} classNames="fadedown" timeout={1000}>
+              <CSSTransition key={i} classNames="fadedown" timeout={2000}>
                 <StyledLink
-                  style={{ transitionDelay: `${i + 3}00ms` }}
+                  style={{ transitionDelay: `${i + 5}00ms` }}
                   key={item.id}
                   to={item.route}
                   active={currentNav === item.route.replace("/#", "")}
@@ -97,8 +97,8 @@ export default function NavBar() {
       </NavLinkWrapper>
       <TransitionGroup component={null}>
         {isMounted && (
-          <CSSTransition classNames={"fadedown"} timeout={1000}>
-            <Toggle style={{ transitionDelay: `750ms` }}>
+          <CSSTransition classNames={"fadedown"} timeout={2000}>
+            <Toggle style={{ transitionDelay: `1000ms` }}>
               <StyledIcon
                 src={dark ? Sun : Moon}
                 onClick={() => {
@@ -111,8 +111,8 @@ export default function NavBar() {
       </TransitionGroup>
       <TransitionGroup component={null}>
         {isMounted && (
-          <CSSTransition classNames={"fadedown"} timeout={100}>
-            <Div style={{ transitionDelay: `900ms` }}>
+          <CSSTransition classNames={"fadedown"} timeout={2000}>
+            <Div style={{ transitionDelay: `1300ms` }}>
               <ResumeButton>Resume</ResumeButton>
             </Div>
           </CSSTransition>

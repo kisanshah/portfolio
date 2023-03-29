@@ -14,7 +14,7 @@ export default function Home() {
     //   return;
     // }
 
-    const timeout = setTimeout(() => setIsMounted(true), 2000);
+    const timeout = setTimeout(() => setIsMounted(true), 1400);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -33,15 +33,25 @@ export default function Home() {
         <TransitionGroup component={null}>
           {isMounted &&
             items.map((item, i) => (
-              <CSSTransition key={i} classNames="fadeup" timeout={2000}>
-                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+              <CSSTransition key={i} classNames="fadeup" timeout={1000}>
+                <div style={{ transitionDelay: `${i + 3}00ms` }}>{item}</div>
               </CSSTransition>
             ))}
         </TransitionGroup>
       </TextWrapper>
-      <ImageContainer>
-        <StyledImage src={profile} alt="Image description" loading="lazy" />
-      </ImageContainer>
+      <TransitionGroup component={null}>
+        {isMounted && (
+          <CSSTransition classNames={"faderight"} timeout={2000}>
+            <ImageContainer style={{ transitionDelay: `750ms` }}>
+              <StyledImage
+                src={profile}
+                alt="Image description"
+                loading="lazy"
+              />
+            </ImageContainer>
+          </CSSTransition>
+        )}
+      </TransitionGroup>
     </StyledHome>
   );
 }
@@ -103,7 +113,7 @@ const float = keyframes`
   }
 `;
 const ImageContainer = styled.div`
-  animation: ${float} 2s ease-in-out infinite;
+  /* animation: ${float} 2s ease-in-out infinite; */
   justify-self: center;
   align-self: center;
   height: 400px;
