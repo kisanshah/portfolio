@@ -4,7 +4,7 @@ import { Project } from "../types/project";
 const initialState: Project[] = [
   {
     thumbnail:
-      "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/projects%2Fthumbnail%2Fcoachvikram.png?alt=media&token=ae5f75ea-f3e1-4e6d-a99d-d7b40c709790",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/projects%2Fthumbnail%2Fcoachvikram.png?alt=media&token=3d739c56-01fa-4509-8e75-e1a96896dd45",
     title: "Coach Vikram",
     description:
       "This App is designed to help corporate professionals enhance their personal and professional skills through targeted training modules.",
@@ -14,7 +14,7 @@ const initialState: Project[] = [
   },
   {
     thumbnail:
-      "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/projects%2Fthumbnail%2Fdealabhi.png?alt=media&token=a64f7e85-eae5-4b35-8a72-89237b4e73da",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/projects%2Fthumbnail%2Fdealabhi.png?alt=media&token=dab7ee16-a627-4a6d-afce-9e89e6dcd6f5",
     title: "Deal Abhi Partner",
     description:
       "This app is your one stop solution to enlist your products & sell them through our platform.",
@@ -25,7 +25,7 @@ const initialState: Project[] = [
   },
   {
     thumbnail:
-      "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/projects%2Fthumbnail%2Fdyd.png?alt=media&token=1b71a7b7-3fbc-41f4-bfce-98ff5e4ce421",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/projects%2Fthumbnail%2Fdyd.png?alt=media&token=5ea23639-c54a-4968-b677-89d0db3d0ec8",
     title: "DYD",
     description:
       "DYD app has been meticulously designed to provide the best-in-class car services. Each car deserves personal attention when it comes to servicing.",
@@ -35,7 +35,7 @@ const initialState: Project[] = [
   },
   {
     thumbnail:
-      "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/projects%2Fthumbnail%2Ffinwill.png?alt=media&token=f314bd26-8f14-476f-8f13-13f470ef95d5",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-3f94f.appspot.com/o/projects%2Fthumbnail%2Ffinwill.png?alt=media&token=65fcb808-58fc-4eb8-8c32-cfa2db16385a",
     title: "Finwill",
     description:
       "A Practice Management Software Solution for Compliance Controls & Work Management",

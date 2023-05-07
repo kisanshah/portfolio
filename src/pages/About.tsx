@@ -63,7 +63,7 @@ export default function About() {
       <IconGroup>
         {icons.map((item, index) => (
           <IconWrapper key={index}>
-            <StyledIcon src={item} />
+            <StyledIcon src={item} alt="Switch Theme Icon"/>
           </IconWrapper>
         ))}
       </IconGroup>

@@ -63,6 +63,9 @@ h1{
   letter-spacing: normal;
   line-height: 30px; 
  }
+ label{
+  color: ${(props) => props.theme.subText};
+ }
  h2{
   margin-top: 10px;
   color: ${(props) => props.theme.subText};

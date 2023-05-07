@@ -18,6 +18,7 @@ export default function Contact() {
           would like to discuss potential job opportunities, please don't
           hesitate to contact me
         </ContactText>
+        <StyledLabel>Drop a message</StyledLabel>
         <Input name="message" />
         <ContactButton>Submit</ContactButton>
       </ContentWrapper>
@@ -25,6 +26,9 @@ export default function Contact() {
   );
 }
 
+const StyledLabel = styled.label`
+  margin-top: 20px;
+`;
 const StyledContact = styled.section`
   padding-top: 10%;
   width: 100%;
@@ -57,7 +61,7 @@ const ContactButton = styled(Button)`
 `;
 
 const Input = styled.textarea`
-  margin-top: 20px;
+  margin-top: 10px;
   width: 70%;
   min-height: 150px;
   height: 50%;
