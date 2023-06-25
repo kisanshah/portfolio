@@ -3,6 +3,11 @@ declare module "*.png" {
   export default value;
 }
 
+declare module "*.webp" {
+  const value: any;
+  export default value;
+}
+
 declare module "*.svg" {
   import { ReactElement, SVGProps } from "react";
   const ReactComponent: (props: SVGProps<SVGElement>) => ReactElement;

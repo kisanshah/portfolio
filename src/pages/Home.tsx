@@ -3,7 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Gap from "src/components/Gap";
 import Header from "src/components/Header";
 import styled, { keyframes } from "styled-components";
-import profile from "../assets/images/profile.png";
+import profile from "../assets/images/profile.webp";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
