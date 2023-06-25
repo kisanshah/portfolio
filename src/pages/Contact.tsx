@@ -59,9 +59,7 @@ const ContactButton = styled(Button)`
     width: 100%;
   }
 `;
-const Label = styled.label`
-  /* Add your label styles here */
-`;
+
 const Input = styled.textarea`
   margin-top: 10px;
   width: 70%;
