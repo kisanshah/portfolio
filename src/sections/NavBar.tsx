@@ -101,6 +101,7 @@ export default function NavBar() {
           <CSSTransition classNames={"fadedown"} timeout={2000}>
             <Toggle style={{ transitionDelay: `1000ms` }}>
               <StyledIcon
+                alt="Switch Theme Icon"
                 src={dark ? Sun : Moon}
                 onClick={() => {
                   dispatch(setTheme(true as any));

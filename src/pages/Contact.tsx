@@ -19,7 +19,8 @@ export default function Contact() {
           hesitate to contact me
         </ContactText>
         <StyledLabel>Drop a message</StyledLabel>
-        <Input name="message" />
+        <Label />
+        <Input name="message" label="Hello" />
         <ContactButton>Submit</ContactButton>
       </ContentWrapper>
     </StyledContact>
@@ -59,7 +60,9 @@ const ContactButton = styled(Button)`
     width: 100%;
   }
 `;
-
+const Label = styled.label`
+  /* Add your label styles here */
+`;
 const Input = styled.textarea`
   margin-top: 10px;
   width: 70%;

@@ -16,7 +16,7 @@ type ProjectComponentProps = {
 const ProjectComponent = ({ item }: ProjectComponentProps) => {
   return (
     <ProjectItem>
-      <ProjectImage src={item.thumbnail} alt="Image description" />
+      <ProjectImage src={item.thumbnail} alt="Project Image" />
       <ProjectTitle>{item.title}</ProjectTitle>
       <ProjectDesc>{item.description}</ProjectDesc>
       <IconWrapper>
