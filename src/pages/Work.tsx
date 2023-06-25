@@ -37,7 +37,7 @@ export default function Work() {
           ))}
         </CompanyNameSection>
         <CompanyDetailSection>
-          <SubText fontSize="20px">
+          <SubText>
             {selected.label}
             <ClickableSpan onClick={() => AppUtils.openUrl(selected.link)}>
               {` @` + selected.company}
