@@ -18,9 +18,8 @@ export default function Contact() {
           would like to discuss potential job opportunities, please don't
           hesitate to contact me
         </ContactText>
-        <StyledLabel>Drop a message</StyledLabel>
-        <Label />
-        <Input name="message" label="Hello" />
+        <StyledLabel htmlFor="message">Drop a message</StyledLabel>
+        <Input id="message" name="message" />
         <ContactButton>Submit</ContactButton>
       </ContentWrapper>
     </StyledContact>
